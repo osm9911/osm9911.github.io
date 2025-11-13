@@ -7,7 +7,6 @@
     <!-- Bootstrap Stylesheet -->
     <link rel="stylesheet" href="bootstrap.min.css">
 
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <!-- FontAwesome for Icons -->
@@ -48,8 +47,8 @@
             color: var(--bs-success) !important;
         }
         section {
-        padding-top: 40px; 
-        margin-bottom: 2rem; 
+            padding-top: 40px; 
+            margin-bottom: 2rem; 
         }
     </style>
 </head>
@@ -75,10 +74,10 @@
     </nav>
 
     <header class="bg-primary text-white text-center py-5">
-    <h1 class="d-inline">Sunmin Oh</h1>
-    <a href="cv_092125.pdf" target="_blank" class="btn btn-light btn-sm ms-3 d-inline align-middle">
-        <i class="fas fa-file-pdf"></i> CV
-    </a>
+        <h1 class="d-inline">Sunmin Oh</h1>
+        <a href="cv_092125.pdf" target="_blank" class="btn btn-light btn-sm ms-3 d-inline align-middle">
+            <i class="fas fa-file-pdf"></i> CV
+        </a>
     </header>
 
     <div class="container my-5">
@@ -86,27 +85,58 @@
         <section id="about">
             <h3 class="section-title"><i class="fas fa-user"></i> About Me</h3>
             <div>
-              <!-- Profile Image floated right, text will wrap around it -->
-              <img src="profile.jpg"
-                   alt="Sunmin Oh"
-                   class="img-fluid float-end ms-3 mb-3 border border-dark border-2"
-                   style="border-radius: 0; max-width: 150px; height: auto;">
-          
-              <p class="text-muted">
-                I'm a Ph.D. student in Statistics at Seoul National University, advised by
-                <a href="https://sites.google.com/view/gwpark/home?authuser=0" target="_blank">
-                  Prof. Gunwoong Park
-                </a>.
-                I'm interested in topics related to directed acyclic graph (DAG) models,
-                particularly in structure learning algorithms. I focus on developing theories
-                and algorithms that relax traditional assumptions—such as identifiability,
-                faithfulness, and causal sufficiency—to enable DAG learning in a wider
-                variety of data scenarios. Additionally, I explore how DAG perspectives can
-                enhance transparency and reliability in complex machine learning models
-                through representation theory, causal AI, and explainable AI (XAI).
-              </p>
+                <!-- Profile Image floated right, text will wrap around it -->
+                <img src="profile.jpg"
+                    alt="Sunmin Oh"
+                    class="img-fluid float-end ms-3 mb-3 border border-dark border-2"
+                    style="border-radius: 0; max-width: 150px; height: auto;">
+        
+                <p class="text-muted">
+                    I'm a Ph.D. student in Statistics at Seoul National University, advised by
+                    <a href="https://sites.google.com/view/gwpark/home?authuser=0" target="_blank">
+                        Prof. Gunwoong Park
+                    </a>.
+                    I'm interested in topics related to directed acyclic graph (DAG) models,
+                    particularly in structure learning algorithms. I focus on developing theories
+                    and algorithms that relax traditional assumptions—such as identifiability,
+                    faithfulness, and causal sufficiency—to enable DAG learning in a wider
+                    variety of data scenarios. Additionally, I explore how DAG perspectives can
+                    enhance transparency and reliability in complex machine learning models
+                    through representation theory, causal AI, and explainable AI (XAI).
+                </p>
             </div>
-          </section>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="mt-5">
+            <h3 class="section-title"><i class="fas fa-graduation-cap"></i> Education</h3>
+            <ul class="list-unstyled">
+                <li class="mb-2">
+                    <strong>Ph.D. in Statistics</strong>, Seoul National University<br>
+                    <span class="text-muted">2024 – Present</span>
+                </li>
+                <li class="mb-2">
+                    <strong>M.S. in Statistics</strong>, Seoul National University<br>
+                    <span class="text-muted">2022 – 2024</span>
+                </li>
+                <li class="mb-2">
+                    <strong>B.S. in Statistics</strong>, Seoul National University<br>
+                    <span class="text-muted">2018 – 2022</span>
+                </li>
+            </ul>
+
+            <h5 class="mt-4">Visiting Research</h5>
+            <ul class="list-unstyled">
+                <li>
+                    <strong>Visiting Research Affiliate</strong>, University of California, Santa Barbara  
+                    (Department of Statistics &amp; Applied Probability)<br>
+                    <span class="text-muted">2025.07.15 – Present</span><br>
+                    <span class="text-muted">
+                        Research on sparse Cholesky factorization methods for high-dimensional DAG learning.
+                    </span>
+                </li>
+            </ul>
+        </section>
 
         <!-- Publications Section -->
         <section id="publications" class="mt-5">
@@ -177,14 +207,13 @@
                         if (target.classList.contains('show')) {
                             // Manually collapse
                             target.classList.remove('show');
+                            this.classList.add('collapsed');
+                            this.setAttribute('aria-expanded', 'false');
                         } else {
-                            // Remove these lines to allow multiple panels to stay open:
-                            // document.querySelectorAll('.accordion-collapse').forEach(collapse => {
-                            //     collapse.classList.remove('show');
-                            // });
-
-                            // Open the clicked one
+                            // Open the clicked one (allow multiple open)
                             target.classList.add('show');
+                            this.classList.remove('collapsed');
+                            this.setAttribute('aria-expanded', 'true');
                         }
                     });
                 });
@@ -193,180 +222,162 @@
 
         <!-- Projects Section -->
         <section id="projects">
-    <h3 class="section-title"><i class="fas fa-briefcase"></i> Projects</h3>
+            <h3 class="section-title"><i class="fas fa-briefcase"></i> Projects</h3>
 
-    <div class="accordion" id="projectsAccordion">
-        <!-- First Project -->
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="projHeadingOne">
-                <button class="accordion-button collapsed" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#projCollapseOne" aria-expanded="false">
-                    <strong>Visiting Research Affiliate, University of California Santa Barbara (2025.07.15 - )</strong>
-                </button>
-            </h2>
-            <div id="projCollapseOne" class="accordion-collapse collapse" aria-labelledby="projHeadingOne">
-                <div class="accordion-body">
-                    <ul>
-                        <li>Served as a Visiting Research Affiliate in the Department of Statistics & Applied Probability.</li>
-                        <li>Collaborated on sparse Cholesky factorization methods for high-dimensional DAG learning.</li>
-                    </ul>
+            <div class="accordion" id="projectsAccordion">
+                <!-- First Project -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="projHeadingOne">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#projCollapseOne" aria-expanded="false">
+                            <strong>Hanwha Systems (2022.11.01 - 2023.04.30)</strong>
+                        </button>
+                    </h2>
+                    <div id="projCollapseOne" class="accordion-collapse collapse" aria-labelledby="projHeadingOne">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Review and consult statistical tests.</li>
+                                <li>Review and advise machine learning methodology.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second Project -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="projHeadingTwo">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#projCollapseTwo" aria-expanded="false">
+                            <strong>Musicow (2021.10.01 - 2021.12.31)</strong>
+                        </button>
+                    </h2>
+                    <div id="projCollapseTwo" class="accordion-collapse collapse" aria-labelledby="projHeadingTwo">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Predict the copyright royalty of each K-pop music for the next 30 years.</li>
+                                <li>Propose a system for establishing equitable pricing in copyright acquisition.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Third Project -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="projHeadingThree">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#projCollapseThree" aria-expanded="false">
+                            <strong>Darlcha (2021.09.01 - 2021.10.10)</strong>
+                        </button>
+                    </h2>
+                    <div id="projCollapseThree" class="accordion-collapse collapse" aria-labelledby="projHeadingThree">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Assess the impacts of performance marketing through data analytics.</li>
+                                <li>Analyze review comments of products.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fourth Project -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="projHeadingFour">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#projCollapseFour" aria-expanded="false">
+                            <strong>Influential: Welaaa Audio Book (2021.07.01 - 2021.08.30)</strong>
+                        </button>
+                    </h2>
+                    <div id="projCollapseFour" class="accordion-collapse collapse" aria-labelledby="projHeadingFour">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Develop tailored audio-book recommendation systems, utilizing user data and app usage records.</li>
+                                <li>Content-based filtering, Deep sequential neural network approaches are employed.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fifth Project -->
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="projHeadingFive">
+                        <button class="accordion-button collapsed" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#projCollapseFive" aria-expanded="false">
+                            <strong>Healing Paper (2021.04.01 - 2021.06.30)</strong>
+                        </button>
+                    </h2>
+                    <div id="projCollapseFive" class="accordion-collapse collapse" aria-labelledby="projHeadingFive">
+                        <div class="accordion-body">
+                            <ul>
+                                <li>Develop tailored plastic surgery recommendation systems, utilizing user data and app usage records.</li>
+                                <li>Rule-based, Content-based filtering, Deep learning approaches are employed.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </section>
+        
+        <section id="seminar">
+            <h3 class="section-title"><i class="fas fa-microphone"></i> Talks & Posters</h3>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th scope="col">Type</th>
+                        <th scope="col">Details</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Poster</td>
+                        <td>2023.06 - The Korean Statistical Society Summer Conference</td>
+                        <td>
+                            <a href="poster_2023_v3.pdf" target="_blank" class="btn btn-sm btn-primary">PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Presentation</td>
+                        <td>2024.05 - The joint international seminar in collaboration with Shiga University and RIKEN</td>
+                        <td>
+                            <a href="https://www.shimizulab.org/lab/jss" target="_blank" class="btn btn-sm btn-primary">Link</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Presentation</td>
+                        <td>2024.06 - The joint international seminar in collaboration with Kyushu University</td>
+                        <td>
+                            <a href="https://www2.math.kyushu-u.ac.jp/~tsukuda/workshop24/workshop_index.html" target="_blank" class="btn btn-sm btn-primary">Link</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Presentation</td>
+                        <td>2024.11 - The BRL workshop in Jeon-ju</td>
+                        <td>
+                            <a href="OptLiNGAM.pdf" target="_blank" class="btn btn-sm btn-primary">PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Poster</td>
+                        <td>2025.05 - Airtificial Intelligence and Statistics 2025</td>
+                        <td>
+                            <a href="poster_2023_v3.pdf" target="_blank" class="btn btn-sm btn-primary">PDF</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Presentation</td>
+                        <td>2025.06 - The Korean Statistical Society Summer Conference
+                        <span class="text-warning ms-2">
+                        <i class="fas fa-trophy"></i>
+                        </span></td>
+                        <td>
+                            <a href="OptLiNGAM.pdf" target="_blank" class="btn btn-sm btn-primary">PDF</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
 
-        <!-- Second Project -->
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="projHeadingTwo">
-                <button class="accordion-button collapsed" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#projCollapseTwo" aria-expanded="false">
-                    <strong>Hanwha Systems (2022.11.01 - 2023.04.30)</strong>
-                </button>
-            </h2>
-            <div id="projCollapseTwo" class="accordion-collapse collapse" aria-labelledby="projHeadingTwo">
-                <div class="accordion-body">
-                    <ul>
-                        <li>Review and consult statistical tests.</li>
-                        <li>Review and advise machine learning methodology.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Third Project -->
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="projHeadingThree">
-                <button class="accordion-button collapsed" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#projCollapseThree" aria-expanded="false">
-                    <strong>Musicow (2021.10.01 - 2021.12.31)</strong>
-                </button>
-            </h2>
-            <div id="projCollapseThree" class="accordion-collapse collapse" aria-labelledby="projHeadingThree">
-                <div class="accordion-body">
-                    <ul>
-                        <li>Predict the copyright royalty of each K-pop music for the next 30 years.</li>
-                        <li>Propose a system for establishing equitable pricing in copyright acquisition.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Fourth Project -->
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="projHeadingFour">
-                <button class="accordion-button collapsed" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#projCollapseFour" aria-expanded="false">
-                    <strong>Darlcha (2021.09.01 - 2021.10.10)</strong>
-                </button>
-            </h2>
-            <div id="projCollapseFour" class="accordion-collapse collapse" aria-labelledby="projHeadingFour">
-                <div class="accordion-body">
-                    <ul>
-                        <li>Assess the impacts of performance marketing through data analytics.</li>
-                        <li>Analyze review comments of products.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Fifth Project -->
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="projHeadingFive">
-                <button class="accordion-button collapsed" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#projCollapseFive" aria-expanded="false">
-                    <strong>Influential: Welaaa Audio Book (2021.07.01 - 2021.08.30)</strong>
-                </button>
-            </h2>
-            <div id="projCollapseFive" class="accordion-collapse collapse" aria-labelledby="projHeadingFive">
-                <div class="accordion-body">
-                    <ul>
-                        <li>Develop tailored audio-book recommendation systems, utilizing user data and app usage records.</li>
-                        <li>Content-based filtering, Deep sequential neural network approaches are employed.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Sixth Project -->
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="projHeadingSix">
-                <button class="accordion-button collapsed" type="button"
-                        data-bs-toggle="collapse" data-bs-target="#projCollapseSix" aria-expanded="false">
-                    <strong>Healing Paper (2021.04.01 - 2021.06.30)</strong>
-                </button>
-            </h2>
-            <div id="projCollapseSix" class="accordion-collapse collapse" aria-labelledby="projHeadingSix">
-                <div class="accordion-body">
-                    <ul>
-                        <li>Develop tailored plastic surgery recommendation systems, utilizing user data and app usage records.</li>
-                        <li>Rule-based, Content-based filtering, Deep learning approaches are employed.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-    
-    <section id="seminar">
-        <h3 class="section-title"><i class="fas fa-microphone"></i> Talks & Posters</h3>
-        <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <th scope="col">Type</th>
-                    <th scope="col">Details</th>
-                    <th scope="col">Action</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Poster</td>
-                    <td>2023.06 - The Korean Statistical Society Summer Conference</td>
-                    <td>
-                        <a href="poster_2023_v3.pdf" target="_blank" class="btn btn-sm btn-primary">PDF</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Presentation</td>
-                    <td>2024.05 - The joint international seminar in collaboration with Shiga University and RIKEN</td>
-                    <td>
-                        <a href="https://www.shimizulab.org/lab/jss" target="_blank" class="btn btn-sm btn-primary">Link</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Presentation</td>
-                    <td>2024.06 - The joint international seminar in collaboration with Kyushu University</td>
-                    <td>
-                        <a href="https://www2.math.kyushu-u.ac.jp/~tsukuda/workshop24/workshop_index.html" target="_blank" class="btn btn-sm btn-primary">Link</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Presentation</td>
-                    <td>2024.11 - The BRL workshop in Jeon-ju</td>
-                    <td>
-                        <a href="OptLiNGAM.pdf" target="_blank" class="btn btn-sm btn-primary">PDF</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Poster</td>
-                    <td>2025.05 - Airtificial Intelligence and Statistics 2025</td>
-                    <td>
-                        <a href="poster_2023_v3.pdf" target="_blank" class="btn btn-sm btn-primary">PDF</a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>Presentation</td>
-                    <td>2025.06 - The Korean Statistical Society Summer Conference
-                    <span class="text-warning ms-2">
-                    <i class="fas fa-trophy"></i> 1st Prize Awardee
-                    </span></td>
-                    <td>
-                        <a href="OptLiNGAM.pdf" target="_blank" class="btn btn-sm btn-primary">PDF</a>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </section>
-
-    <!-- Contact Section -->
+        <!-- Contact Section -->
         <section id="contact">
             <h3 class="section-title"><i class="fas fa-envelope"></i> Contact</h3>
             <div class="row" style="margin-bottom: 20px;">
@@ -442,8 +453,3 @@
 
 </body>
 </html>
-
-
-
-
-
